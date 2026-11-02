@@ -41,5 +41,17 @@
       "1tb"
     ],
     "url": "https://www.memorykings.pe/producto/350666/unidad-ssd-m-2-pcie-1tb-kingston-nv3"
+  },
+  {
+    "id": "Motorola-G67-256GB-4GB-gris-Falabella-IX",
+    "label": "Motorola G67 256GB 4GB gris, Falabella vendedor IX Comercio",
+    "must_contain": [
+      "motorola",
+      "g67",
+      "4gb",
+      "256gb",
+      "gris"
+    ],
+    "url": "https://www.falabella.com.pe/falabella-pe/product/152735875/motorola-g67-xt2621-1-pe-as-4256-ds-gen-4gb-256gb-pantone-gris/152735876"
   }
 ]
