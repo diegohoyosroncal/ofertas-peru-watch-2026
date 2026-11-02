@@ -1,1 +1,32 @@
-{}
+{
+  "Samsung-A27-5G-128GB-6GB-black": {
+    "observations": [
+      {
+        "date": "2026-11-02",
+        "price": 949.0,
+        "in_stock": true,
+        "source": "jsonld-validated"
+      }
+    ]
+  },
+  "Motorola-G67-256GB-4GB-gris": {
+    "observations": [
+      {
+        "date": "2026-11-02",
+        "price": 699.0,
+        "in_stock": true,
+        "source": "jsonld-validated"
+      }
+    ]
+  },
+  "TCL-55P7K-55in-QLED-Hiraoka": {
+    "observations": [
+      {
+        "date": "2026-11-02",
+        "price": 1749.0,
+        "in_stock": true,
+        "source": "jsonld-validated"
+      }
+    ]
+  }
+}
