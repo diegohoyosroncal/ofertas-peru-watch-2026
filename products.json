@@ -34,12 +34,12 @@
     "url": "https://hiraoka.com.pe/televisores-55-pulgadas/televisor-tcl-smart-tv-55-qled-4k-uhd-55p7k"
   },
   {
-    "id": "Sony-WFC510-Negro-SonyPeru-Coolbox",
-    "label": "Sony WF-C510 negro, vendedor Sony Perú en Coolbox",
+    "id": "Nintendo-Switch2-256GB-Phantom",
+    "label": "Nintendo Switch 2 consola base en Phantom",
     "must_contain": [
-      "sony",
-      "wf-c510"
+      "nintendo switch 2",
+      "consola"
     ],
-    "url": "https://www.coolbox.pe/audifonos-sony-wf-c510-bluetooth-5-3-ipx4-wf-c510-bz-uc/p"
+    "url": "https://phantom.pe/nintendo-switch-2/nintendo-switch-2-consola.html"
   }
 ]
