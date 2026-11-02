@@ -34,12 +34,12 @@
     "url": "https://hiraoka.com.pe/televisores-55-pulgadas/televisor-tcl-smart-tv-55-qled-4k-uhd-55p7k"
   },
   {
-    "id": "Nintendo-Switch2-256GB-Phantom",
-    "label": "Nintendo Switch 2 consola base en Phantom",
+    "id": "Kingston-NV3-1TB-2280-MemoryKings",
+    "label": "SSD Kingston NV3 1TB M.2 2280 en Memory Kings",
     "must_contain": [
-      "nintendo switch 2",
-      "consola"
+      "kingston nv3",
+      "1tb"
     ],
-    "url": "https://phantom.pe/nintendo-switch-2/nintendo-switch-2-consola.html"
+    "url": "https://www.memorykings.pe/producto/350666/unidad-ssd-m-2-pcie-1tb-kingston-nv3"
   }
 ]
