@@ -9,6 +9,9 @@ on:
   schedule:
     # 08:17, 13:17 y 18:17 de Lima, 2-30 de noviembre de 2026.
     - cron: '17 13,18,23 2-30 11 *'
+    # Test excepcional del scheduler: 08:51, 09:01, 09:11 Lima del 02/11 solamente; retirar tras recibir evidencia 'schedule'.
+    - cron: '51 13 2 11 *'
+    - cron: '1,11 14 2 11 *'
 permissions:
   contents: write
   issues: write
