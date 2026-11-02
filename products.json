@@ -1,0 +1,6 @@
+[
+  {"id":"Samsung-A27-5G-128GB-6GB-black","label":"Samsung Galaxy A27 5G 128GB 6GB negro","must_contain":["galaxy a27","128gb","6gb"],"url":"https://hiraoka.com.pe/celular-samsung-galaxy-a27-6-7-5g-128gb-6gb-ram-black","fixed_pre_event_min":1169,"reference_url":"https://rulpi.com/celular/samsung-galaxy-a27"},
+  {"id":"Motorola-G67-256GB-4GB-gris","label":"Motorola G67 256GB 4GB gris","must_contain":["motorola","g67","256gb","4gb"],"url":"https://hiraoka.com.pe/celular-libre-motorola-g67-6-8-256gb-4gb-ram-gris","fixed_pre_event_min":779,"reference_url":"https://rulpi.com/celular/motorola-moto-g67"},
+  {"id":"TCL-55P7K-55in-QLED","label":"Televisor TCL 55P7K QLED 55 pulgadas","must_contain":["tcl","55p7k"],"url":"https://www.lacuracao.pe/televisor-tcl-55-qled-4k-uhd-google-tv-55p7k.html"},
+  {"id":"Samsung-UN75U8000H-75in","label":"Televisor Samsung UN75U8000H 75 pulgadas","must_contain":["samsung","75"],"url":"https://www.lacuracao.pe/75-uhd-u8000h-vision-ai-smart-tv-un75u8000hgxpe.html"}
+]
