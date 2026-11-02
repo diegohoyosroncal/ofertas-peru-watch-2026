@@ -28,5 +28,15 @@
         "source": "jsonld-validated"
       }
     ]
+  },
+  "Kingston-NV3-1TB-2280-MemoryKings": {
+    "observations": [
+      {
+        "date": "2026-11-02",
+        "price": 635.0,
+        "in_stock": true,
+        "source": "jsonld-validated"
+      }
+    ]
   }
 }
