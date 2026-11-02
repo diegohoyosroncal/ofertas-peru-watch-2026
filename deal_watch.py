@@ -84,7 +84,7 @@ def parse_product(page,product):
         item=next(i for i in candidates if i['price']==chosen)
         a=item['availability'].lower()
         visible=html.unescape(re.sub(r'<[^>]+>',' ',page))
-        stock=('out' not in a and ('instock' in a or 'limitedavailability' in a)) or bool(re.search(r'(Disponible.{0,35}(unidades|despacho)|En stock|[0-9]+ unidades disponibles|[0-9]+ disponibles)',visible,re.I))
+        stock=('out' not in a and ('instock' in a or 'limitedavailability' in a)) or bool(re.search(r'(Disponible.{0,35}(unidades|despacho)|En stock|Disponibilidad:\s*Disponible|[0-9]+ unidades disponibles|[0-9]+ disponibles)',visible,re.I))
         return {'price':item['price'],'name':name,'in_stock':stock,'source':'jsonld-validated'}
     for key in ['product:price:amount','og:price:amount','price']:
         v=number(p.metas.get(key))
@@ -100,7 +100,7 @@ def parse_product(page,product):
 
 def get_page(url):
     parts=urlsplit(url)
-    if parts.scheme!='https' or parts.netloc not in {'hiraoka.com.pe','www.hiraoka.com.pe','www.coolbox.pe','coolbox.pe'}:
+    if parts.scheme!='https' or parts.netloc not in {'hiraoka.com.pe','www.hiraoka.com.pe','phantom.pe','www.phantom.pe'}:
         raise ValueError('Unapproved merchant host')
     robots=parts.scheme+'://'+parts.netloc+'/robots.txt'
     rp=urllib.robotparser.RobotFileParser();rp.set_url(robots);rp.read()
