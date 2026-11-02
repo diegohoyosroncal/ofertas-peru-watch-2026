@@ -1,0 +1,42 @@
+name: Ofertas Perú - vigilancia independiente
+on:
+  push:
+    paths:
+      - '.github/workflows/deal-watch.yml'
+      - 'deal_watch.py'
+      - 'products.json'
+  workflow_dispatch:
+  schedule:
+    # 08:17, 13:17 y 18:17 de Lima, 2-30 de noviembre de 2026.
+    - cron: '17 13,18,23 2-30 11 *'
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: ofertas-peru-vigilancia
+  cancel-in-progress: false
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Comprobar reglas de precios y SKU
+        run: python deal_watch.py --self-test
+      - name: Consultar vendedores y contrastar historial
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python deal_watch.py
+      - name: Persistir observaciones verificadas
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add history.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'price-watch: update observed merchant prices [skip ci]'
+            git push
+          fi
