@@ -1,10 +1,6 @@
 name: Ofertas Perú - vigilancia independiente
 on:
-  push:
-    paths:
-      - '.github/workflows/deal-watch.yml'
-      - 'deal_watch.py'
-      - 'products.json'
+  # Las revisiones productivas se disparan por horario; los cambios de código no cuentan como pruebas.
   workflow_dispatch:
   schedule:
     # 08:17, 13:17 y 18:17 de Lima, 2-30 de noviembre de 2026.
