@@ -76,7 +76,7 @@ def parse_product(page,product):
             chosen=next(iter(prices))
         else:
             visible=html.unescape(re.sub(r'<[^>]+>',' ',page))
-            discount=re.search(r'Precio\\s+especial\\s*S/\\s*([\\d,.]+)',visible,re.I)
+            discount=re.search(r'Precio\s+especial\s*S/\s*([\d,.]+)',visible,re.I)
             sale=number(discount.group(1)) if discount else None
             meta=number(p.metas.get('product:price:amount') or p.metas.get('og:price:amount'))
             chosen= sale if sale in prices else (meta if meta in prices else None)
