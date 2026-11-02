@@ -100,7 +100,7 @@ def parse_product(page,product):
 
 def get_page(url):
     parts=urlsplit(url)
-    if parts.scheme!='https' or parts.netloc not in {'hiraoka.com.pe','www.hiraoka.com.pe','memorykings.pe','www.memorykings.pe','falabella.com.pe','www.falabella.com.pe'}:
+    if parts.scheme!='https' or parts.netloc not in {'hiraoka.com.pe','www.hiraoka.com.pe','memorykings.pe','www.memorykings.pe','carsa.pe','www.carsa.pe'}:
         raise ValueError('Unapproved merchant host')
     robots=parts.scheme+'://'+parts.netloc+'/robots.txt'
     rp=urllib.robotparser.RobotFileParser();rp.set_url(robots);rp.read()
