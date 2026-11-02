@@ -34,12 +34,12 @@
     "url": "https://hiraoka.com.pe/televisores-55-pulgadas/televisor-tcl-smart-tv-55-qled-4k-uhd-55p7k"
   },
   {
-    "id": "TCL-55P7K-55in-QLED-EFE",
-    "label": "Televisor TCL 55P7K QLED 55 pulgadas, EFE",
+    "id": "Sony-WFC510-Negro-SonyPeru-Coolbox",
+    "label": "Sony WF-C510 negro, vendedor Sony Perú en Coolbox",
     "must_contain": [
-      "tcl",
-      "55p7k"
+      "sony",
+      "wf-c510"
     ],
-    "url": "https://www.efe.com.pe/televisor-tcl-55-qled-4k-uhd-google-tv-55p7k.html"
+    "url": "https://www.coolbox.pe/audifonos-sony-wf-c510-bluetooth-5-3-ipx4-wf-c510-bz-uc/p"
   }
 ]
