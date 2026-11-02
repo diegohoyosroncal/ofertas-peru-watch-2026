@@ -131,8 +131,8 @@ def alert(product, price, baseline, url, source):
               f"Fuente histórica: {product.get('reference_url','serie propia 30 días')}.\n"
               f"Precio en tienda: {url}\nOrigen de extracción: {source}.\n"
               "Stock público indicado en la ficha. **Verificar entrega a Lima, garantía y precio final antes de pagar.**\n"
-              "No se efectuó ninguna compra. @diegohoyosroncal")
-        api('POST','/issues',{'title':title,'body':body,'assignees':['diegohoyosroncal']})
+              "No se efectuó ninguna compra.")
+        api('POST','/issues',{'title':title,'body':body})
         return 'issue-posted'
     except Exception as e:return 'alert-failed:'+str(e)[:140]
 
