@@ -2,6 +2,7 @@
 """Independent retail price watcher. No comparator scraping or credentials in source."""
 import json, os, re, sys, urllib.request, urllib.robotparser, html
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit
@@ -138,8 +139,14 @@ def alert(product, price, baseline, url, source):
         return 'issue-posted'
     except Exception as e:return 'alert-failed:'+str(e)[:140]
 
+def historical_min(previous, fixed_pre_event_min=None):
+    """Conservative 30-day floor; do not re-alert a price above an observed low."""
+    if fixed_pre_event_min is not None:
+        return min([fixed_pre_event_min, *previous])
+    return min(previous) if len(previous)>=7 else None
+
 def run():
-    now=datetime.now(timezone.utc)
+    now=datetime.now(ZoneInfo('America/Lima'))
     if now.year!=2026 or now.month!=11 or now.day<2 or now.day>30:
         print('out-of-season: no scans');return 0
     products=json.loads(CONFIG.read_text())
@@ -154,7 +161,7 @@ def run():
             day=now.date().isoformat()
             past=[e for e in row['observations'] if e['date']<day and e.get('price')]
             previous=[e['price'] for e in past if e['date']>=(now.date()-timedelta(days=30)).isoformat()]
-            baseline=pr.get('fixed_pre_event_min') if pr.get('fixed_pre_event_min') else (min(previous) if len(previous)>=7 else None)
+            baseline=historical_min(previous,pr.get('fixed_pre_event_min'))
             row['observations']=[e for e in row['observations'] if e['date']!=day]
             row['observations'].append({'date':day,'price':observation['price'],'in_stock':observation['in_stock'],'source':observation['source']})
             row['observations']=[e for e in row['observations'] if e['date']>=(now.date()-timedelta(days=40)).isoformat()]
@@ -177,7 +184,13 @@ def self_test():
     try:parse_product(good,{'must_contain':['256gb']});raise AssertionError('must reject wrong SKU')
     except ValueError:pass
     assert scan_jsonld('{bad')==[]
-    print('SELF_TEST_PASS parser, price normalization, SKU guard, malformed JSON-LD')
+    assert historical_min([],1169)==1169
+    assert historical_min([949,949],1169)==949
+    assert historical_min([699,649,599],779)==599
+    assert historical_min([1749]*6) is None
+    assert historical_min([1749]*7)==1749
+    assert datetime(2026,11,6,3,26,tzinfo=timezone.utc).astimezone(ZoneInfo('America/Lima')).date().isoformat()=='2026-11-05'
+    print('SELF_TEST_PASS parser, SKU, historical lows, and Lima calendar boundaries')
 
 if __name__=='__main__':
     if '--self-test' in sys.argv:self_test()
