@@ -132,7 +132,9 @@ def alert(product, price, baseline, url, source):
               f"Precio en tienda: {url}\nOrigen de extracción: {source}.\n"
               "Stock público indicado en la ficha. **Verificar entrega a Lima, garantía y precio final antes de pagar.**\n"
               "No se efectuó ninguna compra.")
-        api('POST','/issues',{'title':title,'body':body})
+        owner=os.environ.get('GITHUB_REPOSITORY','').partition('/')[0]
+        if not owner:raise ValueError('Missing GitHub repository owner')
+        api('POST','/issues',{'title':title,'body':body+'\n@'+owner,'assignees':[owner]})
         return 'issue-posted'
     except Exception as e:return 'alert-failed:'+str(e)[:140]
 
