@@ -96,6 +96,12 @@
         "price": 1449.0,
         "in_stock": true,
         "source": "jsonld-validated"
+      },
+      {
+        "date": "2026-11-18",
+        "price": 1449.0,
+        "in_stock": true,
+        "source": "jsonld-validated"
       }
     ]
   },
@@ -194,6 +200,12 @@
       {
         "date": "2026-11-17",
         "price": 849.0,
+        "in_stock": true,
+        "source": "jsonld-validated"
+      },
+      {
+        "date": "2026-11-18",
+        "price": 749.0,
         "in_stock": true,
         "source": "jsonld-validated"
       }
@@ -358,6 +370,12 @@
       {
         "date": "2026-11-17",
         "price": 615.5,
+        "in_stock": true,
+        "source": "jsonld-validated"
+      },
+      {
+        "date": "2026-11-18",
+        "price": 619.0,
         "in_stock": true,
         "source": "jsonld-validated"
       }
